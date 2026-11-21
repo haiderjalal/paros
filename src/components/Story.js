@@ -69,8 +69,16 @@ function StoryChapter({ chapter, index, progress }) {
   const opacity = useTransform(progress, input, [first ? 1 : 0, 1, 1, last ? 1 : 0]);
   const y = useTransform(progress, input, [first ? 0 : 40, 0, 0, last ? 0 : -40]);
 
+  const number = String(index + 1).padStart(2, '0');
+
   return (
     <m.article className="chapter" style={{ opacity, y }}>
+      <span className="chapter-num" aria-hidden="true">
+        {number}
+      </span>
+      <span className="kicker kicker-dark">
+        Chapter {number} of {String(COUNT).padStart(2, '0')}
+      </span>
       <h2>{chapter.title}</h2>
       <p>{chapter.body}</p>
     </m.article>

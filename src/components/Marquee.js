@@ -1,10 +1,11 @@
 import { marqueeWords } from '@/data/site';
 
-// Decorative band. Pure CSS animation, so it costs no JavaScript.
-export default function Marquee() {
-  const items = [...marqueeWords, ...marqueeWords];
+function Band({ words, className }) {
+  // The list is doubled so the track can loop seamlessly.
+  const items = [...words, ...words];
+
   return (
-    <div className="marquee" aria-hidden="true">
+    <div className={`marquee ${className}`}>
       <div className="marquee-track">
         {items.map((word, i) => (
           <span key={`${word}-${i}`}>
@@ -13,6 +14,17 @@ export default function Marquee() {
           </span>
         ))}
       </div>
+    </div>
+  );
+}
+
+// Two ribbons that cross, running in opposite directions.
+// Decorative band. Pure CSS animation, so it costs no JavaScript.
+export default function Marquee() {
+  return (
+    <div className="marquee-cross" aria-hidden="true">
+      <Band words={marqueeWords} className="marquee-a" />
+      <Band words={[...marqueeWords].reverse()} className="marquee-b" />
     </div>
   );
 }

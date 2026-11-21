@@ -8,15 +8,20 @@ export default function FullMenu() {
     <section id="full-menu" className="full-menu" aria-labelledby="full-menu-title">
       <div className="container">
         <header className="full-head">
-          <h2 id="full-menu-title" className="section-title">
-            Full menu
-          </h2>
-          <p>{totalItems} dishes and drinks, with every size and price. All prices are in Pakistani rupees.</p>
+          <div className="reveal">
+            <span className="kicker kicker-dark">Everything we serve</span>
+            <h2 id="full-menu-title" className="section-title">
+              Full menu
+            </h2>
+          </div>
+          <p className="reveal">
+            {totalItems} dishes and drinks, with every size and price. All prices are in Pakistani rupees.
+          </p>
         </header>
 
         <div className="full-grid">
           {menu.map((category) => (
-            <article className="full-cat" key={category.id}>
+            <article className="full-cat reveal" key={category.id}>
               <h3>{category.name}</h3>
               {category.groups.map((group, g) => (
                 <div className="full-group" key={group.title ?? `group-${g}`}>

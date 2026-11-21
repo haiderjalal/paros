@@ -1,4 +1,13 @@
+import CountUp from './CountUp';
+import { menu, totalItems } from '@/data/menu';
 import { brandValues } from '@/data/site';
+
+// Figures come straight from the menu data, so they never drift out of date.
+const stats = [
+  { value: menu.length, label: 'Menu categories' },
+  { value: totalItems, label: 'Dishes and drinks' },
+  { value: 100, suffix: '%', label: 'Cooked to order' },
+];
 
 export default function Brand() {
   return (
@@ -19,16 +28,30 @@ export default function Brand() {
         </div>
 
         <div>
-          <h2 id="brand-title">Bold food, made the honest way.</h2>
+          <span className="kicker kicker-pill reveal">Why Paros</span>
+          <h2 id="brand-title" className="reveal">
+            Bold food, made the honest way.
+          </h2>
           <ul className="values">
-            {brandValues.map((v) => (
-              <li key={v.title}>
+            {brandValues.map((v, i) => (
+              <li key={v.title} className="reveal" style={{ '--i': i }}>
                 <h3>{v.title}</h3>
                 <p>{v.body}</p>
               </li>
             ))}
           </ul>
         </div>
+      </div>
+
+      <div className="container">
+        <ul className="stats" aria-label="Paros at a glance">
+          {stats.map((s) => (
+            <li key={s.label}>
+              <CountUp value={s.value} suffix={s.suffix} />
+              <span className="stat-label">{s.label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
