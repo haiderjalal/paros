@@ -33,6 +33,10 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
+  /* Off-screen decoration (marquee ribbons, coverflow cards) must never widen the
+     page: on phones that shrinks everything and pushes the header off-screen.
+     `clip` does this without becoming a scroll container, so sticky sections keep working. */
+  overflow-x: clip;
 }
 
 body {
@@ -42,7 +46,7 @@ body {
   line-height: 1.6;
   color: var(--cream);
   background: var(--maroon-deep);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
