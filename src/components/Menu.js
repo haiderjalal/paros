@@ -27,10 +27,13 @@ export default function Menu() {
     <section id="menu" className="menu" aria-labelledby="menu-title">
       <div className="container">
         <header className="menu-head">
-          <h2 id="menu-title" className="section-title">
-            The menu
-          </h2>
-          <p className="menu-intro">Every dish, every size, every price. Choose a category to explore.</p>
+          <div className="reveal">
+            <span className="kicker">What we cook</span>
+            <h2 id="menu-title" className="section-title">
+              The menu
+            </h2>
+          </div>
+          <p className="menu-intro reveal">Every dish, every size, every price. Choose a category to explore.</p>
         </header>
 
         <CategoryCoverflow categories={menu} active={active} onChange={setActive} />

@@ -10,6 +10,7 @@ A fast, animated single-page site for Paros, built with Next.js (App Router, sta
 - Brand: a rotating circular badge built from the logo, plus brand values
 - Menu: a 3D category coverflow (drag, arrows or keyboard), with every item and size from the printed menu, and tilt cards with floating price medallions
 - Visit: order-by-phone call to action with a parallax photo, and a footer
+- Polish: rising embers, a flame-gradient headline, crossing marquee ribbons, scalloped section edges, count-up stats, scroll-in reveals, a pulsing call button and a full-screen mobile menu with section highlighting
 
 ## Run it
 
@@ -40,6 +41,7 @@ Prices were read from the printed menu. Check any that look wrong before going l
 - Photos use responsive `srcset` and `sizes`, and Unsplash serves WebP/AVIF automatically
 - The first hero dish loads with high priority. Hidden carousel slides load lazily at low priority
 - Animations run on `transform` and `opacity` only
+- Scroll reveals are pure CSS (`animation-timeline: view()`), so they cost no JavaScript. Browsers without support, and visitors who prefer reduced motion, simply see the content
 
 ## Accessibility
 

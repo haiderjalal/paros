@@ -1,3 +1,4 @@
+import { ArrowUpIcon } from './Icons';
 import { site } from '@/data/site';
 
 export default function Footer() {
@@ -30,8 +31,16 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container">
+
+      <div className="footer-wordmark reveal" aria-hidden="true">
+        Paros
+      </div>
+
+      <div className="container footer-bottom">
         <p className="copyright">© {new Date().getFullYear()} Paros. Made fresh to order.</p>
+        <a className="to-top" href="#top" aria-label="Back to top">
+          <ArrowUpIcon />
+        </a>
       </div>
     </footer>
   );
